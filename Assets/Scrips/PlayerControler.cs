@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerControler : MonoBehaviour
 {
     private CharacterController controller;
@@ -15,6 +16,7 @@ public class PlayerControler : MonoBehaviour
     private void Start()
     {
         controller =GetComponent<CharacterController>();
+        inputManager = InputManager.Instance;
     }
 
     void Update()
@@ -26,7 +28,8 @@ public class PlayerControler : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector2 movement = inputManager.GetPlayerMovement();
+        Vector3 move= new Vector3(movement.x, 0f, movement.y);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -35,7 +38,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }

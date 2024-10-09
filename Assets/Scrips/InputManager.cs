@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    private static InputManager _instance;
 
+    public static InputManager Instance
+    {
+        get{
+             return _instance;
+        }
+    }
 
     private PlayerControls playerControls;
 
     private void Awake()
     {
+        if (_instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        { 
+            _instance = this;
+        }
         playerControls = new PlayerControls();
     }
     private void OnEnable()
@@ -28,7 +43,7 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Mirar.ReadValue<Vector2>();
     }
-    public bool playerSaltoEsteFrame()
+    public bool PlayerJumpedThisFrame()
     {
         return playerControls.Player.Saltar.triggered;
     }
