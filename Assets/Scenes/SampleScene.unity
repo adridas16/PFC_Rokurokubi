@@ -528,8 +528,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 829630682}
-  - component: {fileID: 829630681}
   - component: {fileID: 829630683}
+  - component: {fileID: 829630681}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 1009423763}
   - component: {fileID: 1009423765}
   - component: {fileID: 1009423764}
+  - component: {fileID: 1009423766}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -730,8 +731,21 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1009423766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009423762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85073abc325cfb043bb001a4642a620f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCameraTransform: {fileID: 330585546}
 --- !u!1 &1155990209
 GameObject:
   m_ObjectHideFlags: 0
