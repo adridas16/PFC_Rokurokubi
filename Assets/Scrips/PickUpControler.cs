@@ -8,19 +8,31 @@ public class PickUpControler : MonoBehaviour
     [SerializeField] private Transform playerCameraTransform;
     [SerializeField] private LayerMask pickUpLayerMask;
     [SerializeField] private Transform objectGrabPointTransform;
+    private ObjectGrabable ObjectGrabable;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            float pickUpDistance = 2f;
-            if (Physics.Raycast(playerCameraTransform.position,playerCameraTransform.forward,out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask)) 
+            if (ObjectGrabable == null)
             {
-               
-                if(raycastHit.transform.TryGetComponent(out ObjectGrabable objectGrabable))
-                {       
-                    objectGrabable.Grab(objectGrabPointTransform);
-                    Debug.Log(objectGrabable);
+                //sin coger objeto se intenta agarrar
+                float pickUpDistance = 2f;
+                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
+                {
+
+                    if (raycastHit.transform.TryGetComponent(out ObjectGrabable))
+                    {
+                        ObjectGrabable.Grab(objectGrabPointTransform);
+                        Debug.Log(ObjectGrabable);
+                    }
+
                 }
+            }
+            else
+            {
+                //agarrando algo
+                ObjectGrabable.Drop();
+                ObjectGrabable=null;
 
             }
         }

@@ -22,6 +22,11 @@ public class PlayerControler : MonoBehaviour
 
     void Update()
     {
+        MovimientoyCam();
+        CursorBlock();
+    }
+    private void MovimientoyCam()
+    {
         //7:45
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -30,7 +35,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         Vector2 movement = inputManager.GetPlayerMovement();
-        Vector3 move= new Vector3(movement.x, 0f, movement.y);
+        Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
@@ -48,5 +53,27 @@ public class PlayerControler : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    private void OnGUI()
+    {
+        if(GUI.Button(new Rect(0,0,100,50),"Lock Cursor"))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+
+        if(GUI.Button(new Rect(125,0,100,50),"Confine Cursor"))
+        {
+            Cursor.lockState= CursorLockMode.Confined;
+        }
+    }
+
+    private void CursorBlock()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Cursor.lockState=CursorLockMode.None;
+        }
     }
 }
