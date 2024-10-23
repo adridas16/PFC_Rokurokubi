@@ -586,7 +586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523043059
@@ -955,11 +955,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85073abc325cfb043bb001a4642a620f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpForce: 150
   playerCameraTransform: {fileID: 330585546}
   pickUpLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   objectGrabPointTransform: {fileID: 137157579}
+  objectRigibody: {fileID: 1545734445}
 --- !u!1 &1155990209
 GameObject:
   m_ObjectHideFlags: 0
