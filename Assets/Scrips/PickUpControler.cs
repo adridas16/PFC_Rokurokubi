@@ -10,7 +10,8 @@ public class PickUpControler : MonoBehaviour
     [SerializeField] private LayerMask pickUpLayerMask;
     [SerializeField] private Transform objectGrabPointTransform;
     private ObjectGrabable ObjectGrabable;
-    [SerializeField] Rigidbody objectRigibody;
+   
+    
 
     private void Update()
     {
@@ -46,26 +47,12 @@ public class PickUpControler : MonoBehaviour
     {
         if (ObjectGrabable != null)
         {
-           MoveObject();
+            ObjectGrabable.MoveObject();
         }
         
     }
 
-    public void MoveObject()
-    {
-        if (Vector3.Distance(objectRigibody.transform.position, objectGrabPointTransform.position) > 0.1f)
-        {
-            Debug.Log("añado fuerxa");
-            Vector3 moveDirection = (objectGrabPointTransform.position - ObjectGrabable.transform.position).normalized;
-            objectRigibody.AddForce(moveDirection * moveDirection.magnitude * PickUpForce, ForceMode.Force);
-
-        }
-        else
-        {
-            Debug.Log("Cancelar fuerza");
-            objectRigibody.velocity = Vector3.zero;
-        }
-    }
+    
 
 }
 

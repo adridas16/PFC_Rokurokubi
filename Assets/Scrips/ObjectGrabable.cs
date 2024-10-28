@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ObjectGrabable : MonoBehaviour
 {
-     private Rigidbody objectRigibody;
+    private Rigidbody objectRigibody;
     private Transform objectGrabPointTransform;
+    [SerializeField] private float PickUpForce = 150f;
+
    
+
     private void Awake()
     {
         objectRigibody = GetComponent<Rigidbody>();
@@ -15,10 +18,11 @@ public class ObjectGrabable : MonoBehaviour
     {
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigibody.useGravity = false;
-        //objectRigibody.drag = 5;
-        //objectRigibody.transform.parent = objectGrabPointTransform;
+        
         objectRigibody.constraints = RigidbodyConstraints.FreezeRotation;
-        //objectRigibody.transform.parent=objectGrabPointTransform;
+        
+        objectRigibody.mass = 1;
+        objectRigibody.drag = 5;
     }
 
     public void Drop()
@@ -26,20 +30,30 @@ public class ObjectGrabable : MonoBehaviour
         
         this.objectGrabPointTransform = null;
         objectRigibody.useGravity = true;
-        //objectRigibody.drag = 0.05f;
+        
         objectRigibody.constraints = RigidbodyConstraints.None;
-        //objectRigibody.transform.parent = null;
+
+        objectRigibody.drag = 1;
     }
 
     private void FixedUpdate()
     {
-        //if (objectGrabPointTransform != null)
-        //{
-        //    float lerpSpeed = 10f;
-        //    Vector3 newPosition = Vector3.Lerp(transform.position, objectGrabPointTransform.position, Time.deltaTime * lerpSpeed);
-        //    objectRigibody.MovePosition(objectGrabPointTransform.position);
-        //    Debug.Log("Grabable");
-        //}
+        
     }
-   
+    public void MoveObject()
+    {
+        if (Vector3.Distance(objectRigibody.transform.position, objectGrabPointTransform.position) > 0.1f)
+        {
+            Vector3 moveDirection = (objectGrabPointTransform.position - transform.position).normalized;
+            objectRigibody.AddForce(moveDirection * moveDirection.magnitude * PickUpForce, ForceMode.Force);
+            Debug.Log("añado fuerxa");
+            
+
+        }
+        else
+        {
+            Debug.Log("Cancelar fuerza");
+            objectRigibody.velocity = Vector3.zero;
+        }
+    }
 }
