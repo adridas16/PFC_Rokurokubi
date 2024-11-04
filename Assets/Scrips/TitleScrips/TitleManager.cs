@@ -31,7 +31,19 @@ public class TitleManager : MonoBehaviour
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         resolutions = Screen.resolutions;
-        //int currentResolutionIndex = 0;   QUITAR Comentar
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height==Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.RefreshShownValue();
+        LoadSetting(currentResolutionIndex);
     }
 
     // Update is called once per frame
@@ -151,7 +163,7 @@ public class TitleManager : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("ResolutionSettingPreference"))
         {
-            qualityDropdown.value = PlayerPrefs.GetInt("ResolutionSettingPreference");
+            resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionSettingPreference");
         }
         else
         {
@@ -189,5 +201,8 @@ public class TitleManager : MonoBehaviour
         {
             volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
         }
+        
+
     }
+    
 }

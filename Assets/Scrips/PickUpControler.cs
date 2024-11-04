@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PickUpControler : MonoBehaviour
 {
-    [SerializeField] private float PickUpForce = 150f;
+    
     [SerializeField] private Transform playerCameraTransform;
     [SerializeField] private LayerMask pickUpLayerMask;
     [SerializeField] private Transform objectGrabPointTransform;
