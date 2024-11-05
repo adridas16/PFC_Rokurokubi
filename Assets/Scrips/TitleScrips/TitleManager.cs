@@ -14,12 +14,12 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
 
 
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Dropdown resolutionDropdown;
-    [SerializeField] private Dropdown qualityDropdown;
-    [SerializeField] private Dropdown textureDropdown;
-    [SerializeField] private Dropdown aaDropdown; 
-    [SerializeField] private Slider volumeSlider;
+    [SerializeField] public AudioMixer audioMixer;
+    [SerializeField] public Dropdown resolutionDropdown;
+    [SerializeField] public Dropdown qualityDropdown;
+    [SerializeField] public Dropdown textureDropdown;
+    [SerializeField] public Dropdown aaDropdown; 
+    [SerializeField] public Slider volumeSlider;
     float currentVolume;
     Resolution[]  resolutions;
     //-----------------------------
