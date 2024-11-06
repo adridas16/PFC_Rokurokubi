@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 
 public class TitleManager : MonoBehaviour
@@ -15,10 +16,10 @@ public class TitleManager : MonoBehaviour
 
 
     [SerializeField] public AudioMixer audioMixer;
-    [SerializeField] public Dropdown resolutionDropdown;
-    [SerializeField] public Dropdown qualityDropdown;
-    [SerializeField] public Dropdown textureDropdown;
-    [SerializeField] public Dropdown aaDropdown; 
+    [SerializeField] public TMP_Dropdown resolutionDropdown;
+    [SerializeField] public TMP_Dropdown qualityDropdown;
+    [SerializeField] public TMP_Dropdown textureDropdown;
+    [SerializeField] public TMP_Dropdown aaDropdown; 
     [SerializeField] public Slider volumeSlider;
     float currentVolume;
     Resolution[]  resolutions;
