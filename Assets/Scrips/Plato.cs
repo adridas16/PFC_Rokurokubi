@@ -20,9 +20,9 @@ public class Plato : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("LavaPlatos"))
+        if (collision.gameObject.CompareTag("LavaPlatos"))
         {
             m_Renderer.material = limpio;
         }

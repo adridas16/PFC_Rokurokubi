@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4799026321727419512}
   - component: {fileID: 3064386446441383404}
   - component: {fileID: 5622181262575662628}
+  - component: {fileID: 8827026416060627404}
   - component: {fileID: 1491375351640078113}
   - component: {fileID: 8304391469617570974}
   - component: {fileID: 75589340037832101}
@@ -63,6 +64,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpForce: 150
+--- !u!114 &8827026416060627404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649444482986324214}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.06140983, g: 1, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!33 &1491375351640078113
 MeshFilter:
   m_ObjectHideFlags: 0

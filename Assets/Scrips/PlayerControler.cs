@@ -13,17 +13,20 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     private InputManager inputManager;
     private Transform cameraTransform;
+    private Animator anim;
     private void Start()
     {
         controller =GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         MovimientoyCam();
         CursorBlock();
+        Agacharte();
     }
     private void MovimientoyCam()
     {
@@ -74,6 +77,19 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             Cursor.lockState=CursorLockMode.None;
+        }
+    }
+
+    private void Agacharte()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            anim.SetBool("Agacharse", true);
+            Debug.Log("agachado");
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            anim.SetBool("Agacharse", false);
         }
     }
 }
