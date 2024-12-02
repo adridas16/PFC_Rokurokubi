@@ -30,7 +30,7 @@ public class PlayerControler : MonoBehaviour
     }
     private void MovimientoyCam()
     {
-        //7:45
+     
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -59,8 +59,7 @@ public class PlayerControler : MonoBehaviour
     }
 
     private void OnGUI()
-    {
-        if(GUI.Button(new Rect(0,0,100,50),"Lock Cursor"))
+    {        if(GUI.Button(new Rect(0,0,100,50),"Lock Cursor"))
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
