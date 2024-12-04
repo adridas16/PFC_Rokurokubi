@@ -6,6 +6,12 @@ TagManager:
   tags:
   - LavaPlatos
   - Plato
+  - RellenableCafe
+  - RellenarCafe
+  - RellenarHarina
+  - RellenableAzucar
+  - RellenableHarina
+  - RellenarAzucar
   layers:
   - Default
   - TransparentFX
