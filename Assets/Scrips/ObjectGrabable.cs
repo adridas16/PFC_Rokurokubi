@@ -46,13 +46,13 @@ public class ObjectGrabable : MonoBehaviour
         {
             Vector3 moveDirection = (objectGrabPointTransform.position - transform.position).normalized;
             objectRigibody.AddForce(moveDirection * moveDirection.magnitude * PickUpForce, ForceMode.Force);
-            Debug.Log("añado fuerxa");
+            
             
 
         }
         else
         {
-            Debug.Log("Cancelar fuerza");
+           
             objectRigibody.velocity = Vector3.zero;
         }
     }

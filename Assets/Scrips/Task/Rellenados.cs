@@ -12,9 +12,9 @@ public class Rellenados : MonoBehaviour
     [SerializeField] private Material m_Azucar;
     [SerializeField] private Material m_Harina;
     
-    bool YaAzucar =true;
-    bool YaCafe =true;
-    bool YaHarina =true;
+    bool YaAzucar =false;
+    bool YaCafe =false;
+    bool YaHarina =false;
 
     public bool yaHarina { get => YaHarina; set => YaHarina = value; }
     public bool yaCafe { get => YaCafe; set => YaCafe = value; }
@@ -27,17 +27,17 @@ public class Rellenados : MonoBehaviour
         if (CompareTag("RellenarAzucar"))
         {
             m_RendererAzucar = GetComponent<MeshRenderer>();
-            Debug.Log("1");
+          
         }
         if (CompareTag("RellenarCafe"))
         {
             m_RendererCafe = GetComponent<MeshRenderer>();
-            Debug.Log("2");
+            
         }
         if (CompareTag("RellenarHarina"))
         {
             m_RendererHarina = GetComponent<MeshRenderer>();
-            Debug.Log("3");
+            
         }
     }
 

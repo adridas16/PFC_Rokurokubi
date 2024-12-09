@@ -7,13 +7,18 @@ public class SpotLight : MonoBehaviour
 {
     private Camera cam;
     [SerializeField] private float duration;
-
+    Light luz;
     private Vector3 velocity;
-    private bool apagada=true;
+    private bool apagada=false;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        luz = GetComponent<Light>();
+    }
     void Start()
     {
         cam = Camera.main;
+       
     }
 
     // Update is called once per frame
@@ -24,13 +29,15 @@ public class SpotLight : MonoBehaviour
     }
     private void ApagarLuz()
     {
-        if (Input.GetKeyDown(KeyCode.F)&&apagada)
+        if (Input.GetKeyDown(KeyCode.F)&&!apagada)
         {
-            gameObject.SetActive(false);
+            luz.intensity = 0;
+            apagada = true;
         }
-        else if(Input.GetKeyDown(KeyCode.F) && !apagada)
+        else if(Input.GetKeyDown(KeyCode.F) && apagada)
         {
-            gameObject.SetActive(true);
+            luz.intensity = 20;
+            apagada = false;
 
         }
         //private IEnumerator RotarAObjetivo()

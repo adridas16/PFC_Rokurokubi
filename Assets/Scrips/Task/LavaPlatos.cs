@@ -26,9 +26,10 @@ public class LavarPlato : MonoBehaviour
             if(!collision.gameObject.GetComponent<Plato>().YaLavado)
             {
                 platosLavados++;
+                
                 if (platosLavados >= 5)
                 {
-                    misionCumplidaText.text = "MisionCumplida";
+                    misionCumplidaText.text = "Platos Lavados";
                 }
                 collision.gameObject.GetComponent<Plato>().YaLavado = true;
 

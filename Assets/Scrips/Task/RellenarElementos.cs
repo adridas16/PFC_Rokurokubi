@@ -34,14 +34,16 @@ public class RellenarElementos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rellenado();
+        MisionCumplidaTexto();
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (CompareTag("RellenableCafe"))
         {
+           
             if (collision.gameObject.CompareTag("RellenarCafe"))
             {
+             
                 m_RendererRellenarCafe.material = m_Vacio;
                 if (!collision.gameObject.GetComponent<Rellenados>().yaCafe)
                 {
@@ -92,11 +94,12 @@ public class RellenarElementos : MonoBehaviour
         }
             
     }
-    private void Rellenado()
-    {
-        if (misionCumplida == 3)
-        {
-            RellenarText.text = "2";
-        }
-    }
+   private void MisionCumplidaTexto()
+   {
+      if (misionCumplida >= 3)
+      {
+       RellenarText.text = "Objetos Rellenados";
+      }
+   }
+    
 }

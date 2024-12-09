@@ -32,7 +32,7 @@ public class PickUpControler : MonoBehaviour
                     if (raycastHitOBJ.transform.TryGetComponent(out ObjectGrabable))
                     {
                         ObjectGrabable.Grab(objectGrabPointTransform);
-                        Debug.Log(ObjectGrabable);
+                        
 
 
                         

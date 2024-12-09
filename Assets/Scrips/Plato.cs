@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Plato : MonoBehaviour
 {
-    private bool yaLavado;
+    private bool yaLavado = false;
     private MeshRenderer m_Renderer;
     [SerializeField] private Material limpio;
     public bool YaLavado { get => yaLavado; set => yaLavado = value; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_Renderer = GetComponent<MeshRenderer>();
     }
@@ -25,7 +25,7 @@ public class Plato : MonoBehaviour
         if (collision.gameObject.CompareTag("LavaPlatos"))
         {
             m_Renderer.material = limpio;
-        }
+        }   
             
     }
 }
