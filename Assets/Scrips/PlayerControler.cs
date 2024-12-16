@@ -78,7 +78,6 @@ public class PlayerControler : MonoBehaviour
             Cursor.lockState=CursorLockMode.None;
         }
     }
-
     private void Agacharte()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -91,4 +90,5 @@ public class PlayerControler : MonoBehaviour
             anim.SetBool("Agacharse", false);
         }
     }
+
 }

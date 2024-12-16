@@ -19,11 +19,11 @@ public class LavarPlato : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Plato"))
+        if(other.gameObject.CompareTag("Plato"))
         {
-            if(!collision.gameObject.GetComponent<Plato>().YaLavado)
+            if(!other.gameObject.GetComponent<Plato>().YaLavado)
             {
                 platosLavados++;
                 
@@ -31,7 +31,7 @@ public class LavarPlato : MonoBehaviour
                 {
                     misionCumplidaText.text = "Platos Lavados";
                 }
-                collision.gameObject.GetComponent<Plato>().YaLavado = true;
+                other.gameObject.GetComponent<Plato>().YaLavado = true;
 
             }
             
@@ -39,5 +39,6 @@ public class LavarPlato : MonoBehaviour
             
         }
     }
-    
+ 
+   
 }
