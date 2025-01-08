@@ -14,6 +14,7 @@ public class PlayerControler : MonoBehaviour
     private InputManager inputManager;
     private Transform cameraTransform;
     private Animator anim;
+    private bool isAgachado = false;
     private void Start()
     {
         controller =GetComponent<CharacterController>();
@@ -49,7 +50,7 @@ public class PlayerControler : MonoBehaviour
         //}
 
         // Changes the height position of the player..
-        if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
+        if (inputManager.PlayerJumpedThisFrame() && groundedPlayer&&!isAgachado)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -80,14 +81,16 @@ public class PlayerControler : MonoBehaviour
     }
     private void Agacharte()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl)&&!groundedPlayer)
         {
             anim.SetBool("Agacharse", true);
             Debug.Log("agachado");
+            isAgachado = true;
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             anim.SetBool("Agacharse", false);
+            isAgachado = false;
         }
     }
 
