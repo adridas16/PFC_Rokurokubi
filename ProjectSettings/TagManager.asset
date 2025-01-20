@@ -12,6 +12,8 @@ TagManager:
   - RellenableAzucar
   - RellenableHarina
   - RellenarAzucar
+  - ApagarLuz
+  - CerrarVentana
   layers:
   - Default
   - TransparentFX

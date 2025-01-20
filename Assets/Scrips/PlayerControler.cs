@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,10 +30,12 @@ public class PlayerControler : MonoBehaviour
         CursorBlock();
         Agacharte();
     }
+
     private void MovimientoyCam()
     {
      
         groundedPlayer = controller.isGrounded;
+        Debug.Log(groundedPlayer);
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -50,7 +53,7 @@ public class PlayerControler : MonoBehaviour
         //}
 
         // Changes the height position of the player..
-        if (inputManager.PlayerJumpedThisFrame() && groundedPlayer&&!isAgachado)
+        if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -60,7 +63,8 @@ public class PlayerControler : MonoBehaviour
     }
 
     private void OnGUI()
-    {        if(GUI.Button(new Rect(0,0,100,50),"Lock Cursor"))
+    {   
+        if(GUI.Button(new Rect(0,0,100,50),"Lock Cursor"))
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -81,16 +85,23 @@ public class PlayerControler : MonoBehaviour
     }
     private void Agacharte()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl)&&!groundedPlayer)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && groundedPlayer && !isAgachado)
         {
+            
             anim.SetBool("Agacharse", true);
             Debug.Log("agachado");
+            
             isAgachado = true;
+
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && groundedPlayer && isAgachado)
         {
+            
             anim.SetBool("Agacharse", false);
+            Debug.Log("NO agachado");
+            
             isAgachado = false;
+            
         }
     }
 

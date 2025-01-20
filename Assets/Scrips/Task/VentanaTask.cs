@@ -8,8 +8,11 @@ public class VentanaTask : MonoBehaviour
     Animator anim;
     [SerializeField] private float tiempoAbrir;
     bool VentanaCerrada=false;
-    static int ventanas;
+    private int ventanas;
     [SerializeField] private TMP_Text misionCumplidaText;
+    Camera cam;
+    private float distanciaVentana=2;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -18,7 +21,7 @@ public class VentanaTask : MonoBehaviour
     void Start()
     {
         tiempoAbrir = Random.Range(0f, 15f);
-        
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -26,18 +29,19 @@ public class VentanaTask : MonoBehaviour
     {
         Temporizador();
         VentanasCerradas();
+        //VentanaAbrir();
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("cierra");
-            if (Input.GetKeyDown(KeyCode.E)) 
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("cierracals");
                 anim.SetBool("Abrir", true);
                 ventanas++;
-                
+
 
             }
 
@@ -68,4 +72,20 @@ public class VentanaTask : MonoBehaviour
             misionCumplidaText.text = "VentanasCerradas";
         }
     }
+    //private void VentanaAbrir()
+    //{
+    //    if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, distanciaVentana) && VentanaCerrada)
+    //    {
+    //        Debug.DrawRay(cam.transform.position, cam.transform.position + cam.transform.forward * distanciaVentana, Color.red, 5);
+    //        if (hitinfo.transform.CompareTag("CerrarVentana"))
+    //        {
+    //            if (Input.GetKeyDown(KeyCode.E))
+    //            {
+    //                Debug.Log(hitinfo);
+    //                anim.SetBool("Abrir", true);
+    //                ventanas++;
+    //            }
+    //        }
+    //    }
+    //}
 }
