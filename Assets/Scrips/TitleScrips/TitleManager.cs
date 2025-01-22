@@ -24,6 +24,8 @@ public class TitleManager : MonoBehaviour
     float currentVolume;
     Resolution[]  resolutions;
     //-----------------------------
+    [SerializeField] GameObject PanelOpciones;
+    [SerializeField] GameObject PanelMenu;
 
     
 
@@ -53,16 +55,7 @@ public class TitleManager : MonoBehaviour
         
     }
 
-    public void Jugar()
-    {
-        SceneManager.LoadScene(1);
-    }
-    public void Salir()
-    {
-        Application.Quit();
-        Debug.Log("Saliste");
-    }
- 
+    
 
     public void SetVolume(float volume)
     {
@@ -205,5 +198,23 @@ public class TitleManager : MonoBehaviour
         
 
     }
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void Opciones()
+    {
+        PanelOpciones.SetActive(true);
+        PanelMenu.SetActive(false);
+    }
     
+    public void Salir()
+    {
+        Application.Quit();
+    }
+    public void SalirOpciones()
+    {
+        PanelOpciones.SetActive(false);
+        PanelMenu.SetActive(true);
+    }
 }

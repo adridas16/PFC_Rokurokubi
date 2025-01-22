@@ -853,6 +853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2746336922669492195}
+  - component: {fileID: 2909803249877216243}
   - component: {fileID: 1893035275994805808}
   - component: {fileID: 377844653651398350}
   - component: {fileID: 6382756702121681907}
@@ -881,6 +882,21 @@ Transform:
   - {fileID: 4694443419440994549}
   m_Father: {fileID: 2181943156090372520}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2909803249877216243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074825267003069270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a18306b3f776845af6ed009eca34cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2295357071975021765}
+  timer: 0
+  misionCumplidaText: {fileID: 0}
 --- !u!33 &1893035275994805808
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -962,8 +978,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2181943156090372520}
   - component: {fileID: 2295357071975021765}
-  - component: {fileID: 6569203992221293365}
-  - component: {fileID: 506056823742905742}
   m_Layer: 0
   m_Name: Ventana
   m_TagString: CerrarVentana
@@ -1009,39 +1023,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &6569203992221293365
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9165488455911632392}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 8.397816, y: 4.5228863, z: 2.107703}
-  m_Center: {x: -2.025131, y: -0.04594651, z: -0.55385214}
---- !u!114 &506056823742905742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9165488455911632392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a18306b3f776845af6ed009eca34cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiempoAbrir: 0
-  misionCumplidaText: {fileID: 0}
-  distanciaVentana: 0
