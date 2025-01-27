@@ -9,11 +9,9 @@ public class Ventana : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private float timer;
     private int ventanas;
-    [SerializeField] private TMP_Text misionCumplidaText;
     Camera cam;
     private float distanciaVentana=2;
     private bool ventanaCerrada = true;
-
     public bool VentanaCerrada { get => ventanaCerrada; set => ventanaCerrada = value; }
 
     void Start()

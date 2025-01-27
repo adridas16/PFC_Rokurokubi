@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class LavarPlato : MonoBehaviour
 {
-     
-    [SerializeField] TMP_Text misionCumplidaText;
-    [SerializeField] int platosLavados;
+
+
+    [SerializeField] SistemaDeMisiones sistemaDeMisiones;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +28,7 @@ public class LavarPlato : MonoBehaviour
         {
             if(!other.gameObject.GetComponent<Plato>().YaLavado)
             {
-                platosLavados++;
-                
-                if (platosLavados >= 5)
-                {
-                    misionCumplidaText.text = "Platos Lavados";
-                }
+                sistemaDeMisiones.MisionPlatosC();
                 other.gameObject.GetComponent<Plato>().YaLavado = true;
 
             }

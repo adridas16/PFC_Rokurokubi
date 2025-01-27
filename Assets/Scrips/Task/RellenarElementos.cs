@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class RellenarElementos : MonoBehaviour
 {
-    [SerializeField] private TMP_Text RellenarText;
-    private static int misionCumplida;
-    [SerializeField] Material m_Vacio; 
+    
+    [SerializeField] Material m_Vacio;
+    [SerializeField] SistemaDeMisiones sistemaDeMisiones;
     MeshRenderer m_RendererRellenarAzucar;
     MeshRenderer m_RendererRellenarCafe;
     MeshRenderer m_RendererRellenarHarina;
+
+ 
 
 
     // Start is called before the first frame update
@@ -47,8 +49,9 @@ public class RellenarElementos : MonoBehaviour
                 m_RendererRellenarCafe.material = m_Vacio;
                 if (!collision.gameObject.GetComponent<Rellenados>().yaCafe)
                 {
-                    
-                    misionCumplida++;
+                    //AVISAR A EVENTMANAGER de misionCumplida++ 
+                    //SistemaMisiones.instance.misionCumplida++;
+                    sistemaDeMisiones.MisionRellenarC();
                     collision.gameObject.GetComponent<Rellenados>().yaCafe = true;
                     
                 }
@@ -64,8 +67,8 @@ public class RellenarElementos : MonoBehaviour
                 m_RendererRellenarAzucar.material = m_Vacio;
                 if (!collision.gameObject.GetComponent<Rellenados>().yaAzucar)
                 {
-                   
-                    misionCumplida++;
+
+                    sistemaDeMisiones.MisionRellenarC();
                     collision.gameObject.GetComponent<Rellenados>().yaAzucar = true;
 
                 }
@@ -82,8 +85,9 @@ public class RellenarElementos : MonoBehaviour
                 m_RendererRellenarHarina.material = m_Vacio;
                 if (!collision.gameObject.GetComponent<Rellenados>().yaHarina)
                 {
+
+                    sistemaDeMisiones.MisionRellenarC();
                     
-                    misionCumplida++;
                     collision.gameObject.GetComponent<Rellenados>().yaHarina = true;
 
                 }
@@ -96,10 +100,7 @@ public class RellenarElementos : MonoBehaviour
     }
    private void MisionCumplidaTexto()
    {
-      if (misionCumplida >= 3)
-      {
-       RellenarText.text = "Objetos Rellenados";
-      }
+      
    }
     
 }

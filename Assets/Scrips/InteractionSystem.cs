@@ -7,9 +7,12 @@ public class InteractionSystem : MonoBehaviour
 {
     private Camera cam;
     [SerializeField] private float interactionDistance;
-    [SerializeField] private TMP_Text textoMisionCumplida;
+    [SerializeField] SistemaDeMisiones sistemaDeMisiones;
 
-    private int ventanas;
+    public int ventanas;
+
+    public int Ventanas { get => ventanas; set => ventanas = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,9 @@ public class InteractionSystem : MonoBehaviour
                     {
                         ventana.Cerrar();
                         ventanas++;
-                        VentanasCerradas();
+                        sistemaDeMisiones.MisionVentanas();
+
+
 
                     }
 
@@ -41,11 +46,5 @@ public class InteractionSystem : MonoBehaviour
         }
     }
 
-    private void VentanasCerradas()
-    {
-        if (ventanas >= 2)
-        {
-            textoMisionCumplida.text = "VentanasCerradas";
-        }
-    }
+   
 }
