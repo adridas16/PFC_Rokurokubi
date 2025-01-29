@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ApagarLuces : MonoBehaviour
+public class ApagarLuces : Tarea
 {
     [SerializeField] List<GameObject> listaLuces;
     //[SerializeField] private GameObject[] luces;
@@ -65,6 +65,7 @@ public class ApagarLuces : MonoBehaviour
                     Debug.Log(hitinfo);
                     Debug.Log(luces);
                     luces++;
+                    Terminar();
                 }
             }
             else

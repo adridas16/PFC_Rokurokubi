@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SistemaDeMisiones : MonoBehaviour
+public class SistemaDeMisiones : Tarea
 {
     [SerializeField] private InteractionSystem interactionSystem;
     [SerializeField] private RellenarElementos rellenarElementos;
@@ -22,9 +22,10 @@ public class SistemaDeMisiones : MonoBehaviour
     public void MisionVentanas()
     {
          if (interactionSystem.ventanas >= 2)
-        {
+         {
             misionVentana.text = "VentanasCerradas";
-        }
+            Terminar();
+         }
     }
     public void MisionRellenarC()
     {
@@ -36,6 +37,7 @@ public class SistemaDeMisiones : MonoBehaviour
         if (misionesCumplidas >= 3)
         {
             RellenarText.text = "Objetos Rellenados";
+            Terminar();
         }
     }
     public void MisionPlatosC()
@@ -48,6 +50,7 @@ public class SistemaDeMisiones : MonoBehaviour
         if (platosLavados >= 5)
         {
             misionPlatos.text = "Platos Lavados";
+            Terminar();
         }
     }
     private void LLave()

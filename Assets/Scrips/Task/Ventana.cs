@@ -4,7 +4,7 @@ using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class Ventana : MonoBehaviour
+public class Ventana : Tarea
 {
     [SerializeField] private Animator anim;
     [SerializeField] private float timer;
@@ -16,6 +16,7 @@ public class Ventana : MonoBehaviour
 
     void Start()
     {
+
         timer = Random.Range(0f, 15f);
         cam = Camera.main;
     }
@@ -36,6 +37,7 @@ public class Ventana : MonoBehaviour
                 anim.SetBool("Abrir", true);
                 Debug.Log("abre");
                 VentanaCerrada = false;
+                
             }
         }
        
@@ -47,7 +49,6 @@ public class Ventana : MonoBehaviour
     public void Cerrar()
     {
         anim.SetBool("Abrir", false);
-
 
     }
 }
