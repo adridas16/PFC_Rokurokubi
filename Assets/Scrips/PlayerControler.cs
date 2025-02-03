@@ -19,26 +19,34 @@ public class PlayerControler : MonoBehaviour
     private bool isAgachado = false;
     Vector3 movementDirection;
     Vector2 movement;
+    [SerializeField] private Canvas pause;
+    [SerializeField] private Canvas canvasplayer;
     private void Start()
     {
         controller =GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
         anim = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        MovimientoyCam();
-        CursorBlock();
-        Agacharte();
+        if (Time.timeScale > 0) 
+        {
+            MovimientoyCam();
+            CursorBlock();
+            Agacharte();
+            
+        }
+      Pause();
     }
 
     private void MovimientoyCam()
     {
      
         groundedPlayer = controller.isGrounded;
-        Debug.Log(groundedPlayer);
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -110,5 +118,17 @@ public class PlayerControler : MonoBehaviour
     {
         
         playerSpeed = 4f;
+    }
+    private void Pause()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            pause.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            canvasplayer.enabled = false;
+            Time.timeScale = 0;
+        }
+        
     }
 }

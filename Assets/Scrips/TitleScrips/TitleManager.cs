@@ -26,8 +26,12 @@ public class TitleManager : MonoBehaviour
     //-----------------------------
     [SerializeField] GameObject PanelOpciones;
     [SerializeField] GameObject PanelMenu;
-
-    
+    Canvas canvas;
+    [SerializeField] private Canvas canvasplayer;
+    private void Awake()
+    {
+        canvas = GetComponent<Canvas>();
+    }
 
     void Start()
     {
@@ -217,4 +221,15 @@ public class TitleManager : MonoBehaviour
         PanelOpciones.SetActive(false);
         PanelMenu.SetActive(true);
     }
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Continue()
+    {
+        Time.timeScale = 1;
+        canvasplayer.enabled = true;
+        canvas.enabled = false;
+    }
+    
 }

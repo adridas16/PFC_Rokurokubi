@@ -13,6 +13,7 @@ public class ApagarLuces : Tarea
     Camera cam;
     [SerializeField] private float distancialuz;
     private bool seApaga=false;
+    private bool misionTerminada=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +66,12 @@ public class ApagarLuces : Tarea
                     Debug.Log(hitinfo);
                     Debug.Log(luces);
                     luces++;
-                    Terminar();
+                    if (!misionTerminada)
+                    {
+                        Terminar();
+                        misionTerminada = true;
+                    }
+                    
                 }
             }
             else

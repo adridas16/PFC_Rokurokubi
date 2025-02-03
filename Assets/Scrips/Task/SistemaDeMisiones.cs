@@ -13,6 +13,9 @@ public class SistemaDeMisiones : Tarea
     [SerializeField] private TMP_Text misionVentana;
     [SerializeField] private TMP_Text RellenarText;
     [SerializeField] private TMP_Text misionPlatos;
+    private bool misionVterminada=false;
+    private bool misionRterminada=false;
+    private bool misionPterminada=false;
     void Update()
     {
         MisionVentanas();
@@ -24,7 +27,13 @@ public class SistemaDeMisiones : Tarea
          if (interactionSystem.ventanas >= 2)
          {
             misionVentana.text = "VentanasCerradas";
-            Terminar();
+            
+            if (!misionVterminada) 
+            {
+                Terminar();
+                misionVterminada = true;
+            }
+           
          }
     }
     public void MisionRellenarC()
@@ -37,7 +46,12 @@ public class SistemaDeMisiones : Tarea
         if (misionesCumplidas >= 3)
         {
             RellenarText.text = "Objetos Rellenados";
-            Terminar();
+            if(!misionRterminada)
+            {
+                Terminar();
+                misionRterminada = true;
+            }
+            
         }
     }
     public void MisionPlatosC()
@@ -50,7 +64,13 @@ public class SistemaDeMisiones : Tarea
         if (platosLavados >= 5)
         {
             misionPlatos.text = "Platos Lavados";
-            Terminar();
+            if(!misionPterminada)
+            {
+                Terminar();
+                misionPterminada = true;
+            }
+            
+            
         }
     }
     private void LLave()

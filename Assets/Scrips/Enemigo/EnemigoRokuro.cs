@@ -7,29 +7,45 @@ public class EnemigoRokuro : MonoBehaviour
 {
     private NavMeshAgent agent;
     private PlayerControler player;
-    [SerializeField]private float timerAtaque = 15;
-
-
+    [SerializeField] private float timerAtaque = 15;
+    private EnemigoRokuro enemigoR;
+    [SerializeField] private Spawner spawner;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        spawner.Spawneado = true;
+    }
+    void Start()
+    {
         player = GameObject.FindObjectOfType<PlayerControler>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        perseguir();
-       
-       
-        
+        timerAtaque -= Time.deltaTime;
+        if (timerAtaque > 0)
+        {
+            Perseguir();
+
+        }
+        else if (timerAtaque < 0)
+        {
+            spawner.Spawneado = false;
+            timerAtaque = 15;
+            gameObject.SetActive(false);
+        }
+
+
+
 
     }
- 
+
 
     //funciona con evento de animacion
-    private void perseguir()
+    private void Perseguir()
     {
         //Tengo que definir como destino la posicion del player
         agent.SetDestination(player.transform.position);
@@ -40,6 +56,11 @@ public class EnemigoRokuro : MonoBehaviour
             //me paro
             agent.isStopped = true;
             //activar la animacion de ataque
+            EnfocarPlayer();
+        }
+        else
+        {
+            agent.isStopped=false;
             EnfocarPlayer();
         }
     }
@@ -54,7 +75,7 @@ public class EnemigoRokuro : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direccionAPlayer);
     }
 
-    
-    
-    
+
+
+
 }

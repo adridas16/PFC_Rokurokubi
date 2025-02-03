@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Tarea : MonoBehaviour
 {
-    [SerializeField]
-    protected float tiempoExtra;
-
+    [SerializeField] protected float tiempoExtra = 50;
+    [SerializeField] Spawner spawner;
     public void Terminar()
     {
-        Spawner.spawner.Timer += tiempoExtra;
+        spawner.Timer += tiempoExtra;
     }
 }
