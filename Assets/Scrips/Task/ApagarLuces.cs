@@ -14,6 +14,7 @@ public class ApagarLuces : Tarea
     [SerializeField] private float distancialuz;
     private bool seApaga=false;
     private bool misionTerminada=false;
+    SistemaDeMisiones sistemaDeMisiones;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +71,7 @@ public class ApagarLuces : Tarea
                     {
                         Terminar();
                         misionTerminada = true;
+                        sistemaDeMisiones.finalJuego++;
                     }
                     
                 }

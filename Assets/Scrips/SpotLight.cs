@@ -24,7 +24,7 @@ public class SpotLight : MonoBehaviour
     // Update is called once per frame
     void Update()   
     {
-        transform.DORotate(cam.transform.eulerAngles, duration);
+        transform.DORotate(cam.transform.eulerAngles, duration);    
         ApagarLuz();
     }
     private void ApagarLuz()

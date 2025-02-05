@@ -19,8 +19,8 @@ public class PlayerControler : MonoBehaviour
     private bool isAgachado = false;
     Vector3 movementDirection;
     Vector2 movement;
-    [SerializeField] private Canvas pause;
-    [SerializeField] private Canvas canvasplayer;
+    [SerializeField] private GameObject pause;
+    [SerializeField] private GameObject canvasplayer;
     private void Start()
     {
         controller =GetComponent<CharacterController>();
@@ -36,7 +36,6 @@ public class PlayerControler : MonoBehaviour
         if (Time.timeScale > 0) 
         {
             MovimientoyCam();
-            CursorBlock();
             Agacharte();
             
         }
@@ -73,27 +72,6 @@ public class PlayerControler : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    private void OnGUI()
-    {   
-        if(GUI.Button(new Rect(0,0,100,50),"Lock Cursor"))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
-
-        if(GUI.Button(new Rect(125,0,100,50),"Confine Cursor"))
-        {
-            Cursor.lockState= CursorLockMode.Confined;
-        }
-    }
-
-    private void CursorBlock()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Cursor.lockState=CursorLockMode.None;
-        }
-    }
     private void Agacharte()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl) && groundedPlayer && !isAgachado)
@@ -123,10 +101,10 @@ public class PlayerControler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            pause.enabled = true;
+            pause.SetActive(true);
+            canvasplayer.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            canvasplayer.enabled = false;
             Time.timeScale = 0;
         }
         

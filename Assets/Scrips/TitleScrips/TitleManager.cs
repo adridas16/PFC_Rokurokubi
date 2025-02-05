@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 
 public class TitleManager : MonoBehaviour
@@ -18,7 +19,6 @@ public class TitleManager : MonoBehaviour
     [SerializeField] public AudioMixer audioMixer;
     [SerializeField] public TMP_Dropdown resolutionDropdown;
     [SerializeField] public TMP_Dropdown qualityDropdown;
-    [SerializeField] public TMP_Dropdown textureDropdown;
     [SerializeField] public TMP_Dropdown aaDropdown; 
     [SerializeField] public Slider volumeSlider;
     float currentVolume;
@@ -35,7 +35,7 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
-        resolutionDropdown.ClearOptions();
+        //resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
@@ -50,7 +50,7 @@ public class TitleManager : MonoBehaviour
         }
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.RefreshShownValue();
-        LoadSetting(currentResolutionIndex);
+        LoadSetting();
     }
 
     // Update is called once per frame
@@ -82,128 +82,114 @@ public class TitleManager : MonoBehaviour
     public void SetTextureQuality(int textureIndex)
     {
         QualitySettings.globalTextureMipmapLimit=textureIndex;
-        qualityDropdown.value = 6;
+        //qualityDropdown.value = 6;
     }
 
     public void SetAntiAlising(int aaIndex)
     {
         QualitySettings.antiAliasing = aaIndex;
-        qualityDropdown.value = 6;
+        aaDropdown.value = aaIndex;
+        aaDropdown.RefreshShownValue();
     }
 
     public void SetQuality(int qualityIndex)
     {
-        if (qualityIndex != 6)
-        {
+        //if (qualityIndex != 6)
+        //{
+            qualityDropdown.value = qualityIndex;
             QualitySettings.SetQualityLevel(qualityIndex);
-        }
-        switch (qualityIndex)
-        {
-            case 0: //Calidad Muy bajo
-                textureDropdown.value=3;
-                aaDropdown.value = 0;
-                break;
+            qualityDropdown.RefreshShownValue();
+        //}
+        //switch (qualityIndex)
+        //{
+        //    case 0: //Calidad Muy bajo
+        //        aaDropdown.value = 0;
+        //        break;
 
-            case 1: //Calidad Bajo
-                textureDropdown.value = 2;
-                aaDropdown.value = 0;
-                break;
+        //    case 1: //Calidad Bajo
+        //        textureDropdown.value = 2;
+        //        aaDropdown.value = 0;
+        //        break;
 
-            case 2://Calidad Medio
-                textureDropdown.value = 1;
-                aaDropdown.value = 0;
-                break;
+        //    case 2://Calidad Medio
+        //        textureDropdown.value = 1;
+        //        aaDropdown.value = 0;
+        //        break;
 
-            case 3://Calidad Alto
-                textureDropdown.value = 0;
-                aaDropdown.value = 0;
-                break;
+        //    case 3://Calidad Alto
+        //        textureDropdown.value = 0;
+        //        aaDropdown.value = 0;
+        //        break;
 
-            case 4://Calidad Alto
-                textureDropdown.value = 0;
-                aaDropdown.value = 1;
-                break;
+        //    case 4://Calidad Alto
+        //        textureDropdown.value = 0;
+        //        aaDropdown.value = 1;
+        //        break;
 
-            case 5: //Calidad Muy alto
-                textureDropdown.value = 0;
-                aaDropdown.value = 2;
-                break;
-
-
+        //    case 5: //Calidad Muy alto
+        //        textureDropdown.value = 0;
+        //        aaDropdown.value = 2;
+        //        break;
 
 
 
-        }
-        qualityDropdown.value = qualityIndex;
+
+
+        //}
+        //qualityDropdown.value = qualityIndex;
     }
 
 
     public void SaveSetting()
     {
+        Debug.Log("Guarda");
         PlayerPrefs.SetInt("QualitySettingPreference",qualityDropdown.value);
         PlayerPrefs.SetInt("ResolutionSettingPreference",resolutionDropdown.value);
-        PlayerPrefs.SetInt("TextureSettingPreference",textureDropdown.value);
         PlayerPrefs.SetInt("AntiAlisingPreference",aaDropdown.value);
-        PlayerPrefs.SetInt("TextureQualityPreference",textureDropdown.value);
         PlayerPrefs.SetInt("FullScreenPreference",Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("VolumePreference",currentVolume);
     }
 
-    public void LoadSetting(int currentResolutionIndex)
+    public void LoadSetting()
     {
         if (PlayerPrefs.HasKey("QualitySettingPreference"))
         {
-            qualityDropdown.value = PlayerPrefs.GetInt("QualitySettingPreference");
+            int loadedQuality = PlayerPrefs.GetInt("QualitySettingPreference");
+            qualityDropdown.value = loadedQuality;
+            QualitySettings.SetQualityLevel(loadedQuality);
         }
-        else
-        {
-            qualityDropdown.value = 3;
-        }
+        
         if (PlayerPrefs.HasKey("ResolutionSettingPreference"))
         {
             resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionSettingPreference");
         }
-        else
-        {
-            resolutionDropdown.value = currentResolutionIndex;
-        }
+       
         if (PlayerPrefs.HasKey("TextureSettingPreference"))
         {
             qualityDropdown.value = PlayerPrefs.GetInt("TextureSettingPreference");
         }
-        else
-        {
-            textureDropdown.value = 0;
-        }
         if (PlayerPrefs.HasKey("AntiAlisingPreference"))
         {
             qualityDropdown.value = PlayerPrefs.GetInt("AntiAlisingPreference");
+            
         }
-        else
-        {
-            aaDropdown.value = 1;
-        }
+        
         if (PlayerPrefs.HasKey("FullScreenPreference"))
         {
             qualityDropdown.value = PlayerPrefs.GetInt("FullScreenPreference");
         }
-        else
-        {
-            Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreenPreference"));
-        }
+        
         if (PlayerPrefs.HasKey("VolumePreference"))
         {
             volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
         }
-        else
-        {
-            volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
-        }
+        
         
 
     }
     public void Play()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     public void Opciones()
@@ -223,13 +209,15 @@ public class TitleManager : MonoBehaviour
     }
     public void Menu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void Continue()
     {
         Time.timeScale = 1;
-        canvasplayer.enabled = true;
-        canvas.enabled = false;
+        PanelMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     
 }

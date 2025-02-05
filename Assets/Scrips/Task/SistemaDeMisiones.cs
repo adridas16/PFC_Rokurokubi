@@ -16,6 +16,16 @@ public class SistemaDeMisiones : Tarea
     private bool misionVterminada=false;
     private bool misionRterminada=false;
     private bool misionPterminada=false;
+    public int finalJuego;
+    [SerializeField] GameObject llave;
+    Camera cam;
+    private int pickUpDistance;
+
+    private void Start()
+    {
+        cam=Camera.main;
+    }
+
     void Update()
     {
         MisionVentanas();
@@ -32,6 +42,7 @@ public class SistemaDeMisiones : Tarea
             {
                 Terminar();
                 misionVterminada = true;
+                finalJuego++;
             }
            
          }
@@ -50,6 +61,7 @@ public class SistemaDeMisiones : Tarea
             {
                 Terminar();
                 misionRterminada = true;
+                finalJuego++;
             }
             
         }
@@ -68,6 +80,7 @@ public class SistemaDeMisiones : Tarea
             {
                 Terminar();
                 misionPterminada = true;
+                finalJuego++;
             }
             
             
@@ -75,6 +88,10 @@ public class SistemaDeMisiones : Tarea
     }
     private void LLave()
     {
-
+        if(finalJuego >= 4)
+        {
+            llave.gameObject.SetActive(true);
+        }
+       
     }
 }
