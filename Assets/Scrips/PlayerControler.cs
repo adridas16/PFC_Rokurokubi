@@ -102,7 +102,6 @@ public class PlayerControler : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             pause.SetActive(true);
-            canvasplayer.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0;

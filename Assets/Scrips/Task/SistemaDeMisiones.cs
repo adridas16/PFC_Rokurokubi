@@ -20,7 +20,7 @@ public class SistemaDeMisiones : Tarea
     [SerializeField] GameObject llave;
     Camera cam;
     private int pickUpDistance;
-
+    
     private void Start()
     {
         cam=Camera.main;
@@ -31,18 +31,20 @@ public class SistemaDeMisiones : Tarea
         MisionVentanas();
         MisionRellenar();
         MisionPlatos();
+        LLave();
     }
     public void MisionVentanas()
     {
          if (interactionSystem.ventanas >= 2)
          {
             misionVentana.text = "VentanasCerradas";
-            
+            finalJuego++;
             if (!misionVterminada) 
             {
                 Terminar();
                 misionVterminada = true;
-                finalJuego++;
+                
+
             }
            
          }
@@ -88,7 +90,7 @@ public class SistemaDeMisiones : Tarea
     }
     private void LLave()
     {
-        if(finalJuego >= 4)
+        if(finalJuego >= 3)
         {
             llave.gameObject.SetActive(true);
         }

@@ -10,6 +10,7 @@ public class EnemigoRokuro : MonoBehaviour
     [SerializeField] private float timerAtaque = 15;
     private EnemigoRokuro enemigoR;
     [SerializeField] private Spawner spawner;
+    [SerializeField] private GameObject PanelM;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,6 +58,8 @@ public class EnemigoRokuro : MonoBehaviour
             agent.isStopped = true;
             //activar la animacion de ataque
             EnfocarPlayer();
+            PanelM.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
