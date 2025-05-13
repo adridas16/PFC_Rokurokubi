@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SistemaDeMisiones : Tarea
 {
@@ -16,6 +17,7 @@ public class SistemaDeMisiones : Tarea
     private bool misionVterminada=false;
     private bool misionRterminada=false;
     private bool misionPterminada=false;
+    private bool misionLterminada=false;
     public int finalJuego;
     [SerializeField] GameObject llave;
     Camera cam;
@@ -38,12 +40,12 @@ public class SistemaDeMisiones : Tarea
          if (interactionSystem.ventanas >= 2)
          {
             misionVentana.text = "VentanasCerradas";
-            finalJuego++;
+            
             if (!misionVterminada) 
             {
                 Terminar();
                 misionVterminada = true;
-                
+                finalJuego++;
 
             }
            
@@ -88,9 +90,21 @@ public class SistemaDeMisiones : Tarea
             
         }
     }
+    public void MisionLimpiarMesas()
+    {
+       
+            if (!misionLterminada)
+            {
+                Terminar();
+                misionLterminada = true;
+                finalJuego++;
+            }
+
+        
+    }
     private void LLave()
     {
-        if(finalJuego >= 3)
+        if(finalJuego >= 4)
         {
             llave.gameObject.SetActive(true);
         }

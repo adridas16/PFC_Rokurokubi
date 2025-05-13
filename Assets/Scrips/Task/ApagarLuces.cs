@@ -64,8 +64,7 @@ public class ApagarLuces : Tarea
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hitinfo.transform.GetComponent<Outline>().enabled=true;
-                    Debug.Log(hitinfo);
-                    Debug.Log(luces);
+                    
                     luces++;
                     if (!misionTerminada)
                     {
