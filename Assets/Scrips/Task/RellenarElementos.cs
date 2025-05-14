@@ -49,8 +49,6 @@ public class RellenarElementos : MonoBehaviour
                 m_RendererRellenarCafe.material = m_Vacio;
                 if (!collision.gameObject.GetComponent<Rellenados>().yaCafe)
                 {
-                    //AVISAR A EVENTMANAGER de misionCumplida++ 
-                    //SistemaMisiones.instance.misionCumplida++;
                     sistemaDeMisiones.MisionRellenarC();
                     collision.gameObject.GetComponent<Rellenados>().yaCafe = true;
                     

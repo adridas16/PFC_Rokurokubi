@@ -17,7 +17,7 @@ public class SistemaDeMisiones : Tarea
     private bool misionVterminada=false;
     private bool misionRterminada=false;
     private bool misionPterminada=false;
-    private bool misionLterminada=false;
+    public bool misionLterminada=false;
     public int finalJuego;
     [SerializeField] GameObject llave;
     Camera cam;

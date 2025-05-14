@@ -28,7 +28,17 @@ public class LimpiarMesas : MonoBehaviour
     {
         if (other.CompareTag("Papeles"))
         {
-            nPapeles--;
+            if (nPapeles >= 3)
+            {
+                sistemadeMisiones.finalJuego--;
+                sistemadeMisiones.misionLterminada = false;
+                nPapeles--;
+            }
+            else if (nPapeles < 3)
+            {
+                nPapeles--;
+            }
+            
         }
     }
     private void MisionPapelera()
