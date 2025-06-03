@@ -16,8 +16,6 @@ public class PickUpControler : MonoBehaviour
     private float pickUpDistanceOutline = 2.5f;
 
 
-
-
     private void Update()   
     {
         if (Input.GetMouseButtonDown(0))

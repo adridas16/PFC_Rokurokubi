@@ -12,7 +12,7 @@ public class SistemaDeMisiones : Tarea
     [SerializeField] public  int misionesCumplidas;
     [SerializeField] private int platosLavados;
     [SerializeField] private TMP_Text misionVentana;
-    [SerializeField] private TMP_Text RellenarText;
+    [SerializeField] private TMP_Text misionRellenar;
     [SerializeField] private TMP_Text misionPlatos;
     private bool misionVterminada=false;
     private bool misionRterminada=false;
@@ -21,8 +21,7 @@ public class SistemaDeMisiones : Tarea
     public int finalJuego;
     [SerializeField] GameObject llave;
     Camera cam;
-    private int pickUpDistance;
-    
+
     private void Start()
     {
         cam=Camera.main;
@@ -54,13 +53,12 @@ public class SistemaDeMisiones : Tarea
     public void MisionRellenarC()
     {
         misionesCumplidas++;
-        Debug.Log(misionesCumplidas);
     }
     private void MisionRellenar()
     {
         if (misionesCumplidas >= 3)
         {
-            RellenarText.text = "Objetos Rellenados";
+            misionRellenar.text = "Objetos Rellenados";
             if(!misionRterminada)
             {
                 Terminar();
@@ -73,7 +71,6 @@ public class SistemaDeMisiones : Tarea
     public void MisionPlatosC()
     {
         platosLavados++;
-        Debug.Log(platosLavados);
     }
     private void MisionPlatos()
     {

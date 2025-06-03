@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class ApagarLuces : Tarea
 {
     [SerializeField] List<GameObject> listaLuces;
-    //[SerializeField] private GameObject[] luces;
     [SerializeField]float timerLuz=0;
     [SerializeField] Animator anim;
     int luces;
@@ -15,7 +14,6 @@ public class ApagarLuces : Tarea
     private bool seApaga=false;
     private bool misionTerminada=false;
     SistemaDeMisiones sistemaDeMisiones;
-    // Start is called before the first frame update
     void Start()
     {
        cam=Camera.main;

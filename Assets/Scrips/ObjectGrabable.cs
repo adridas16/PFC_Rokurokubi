@@ -8,8 +8,7 @@ public class ObjectGrabable : MonoBehaviour
     private Transform objectGrabPointTransform;
     [SerializeField] private float PickUpForce = 150f;
 
-   
-
+  
     private void Awake()
     {
         objectRigibody = GetComponent<Rigidbody>();
@@ -36,10 +35,7 @@ public class ObjectGrabable : MonoBehaviour
         objectRigibody.drag = 1;
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
+ 
     public void MoveObject()
     {
         if (Vector3.Distance(objectRigibody.transform.position, objectGrabPointTransform.position) > 0.1f)
