@@ -11,26 +11,25 @@ public class EnemigoRokuro : MonoBehaviour
     private EnemigoRokuro enemigoR;
     [SerializeField] private Spawner spawner;
     [SerializeField] private GameObject PanelM;
-    // Start is called before the first frame update
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         spawner.Spawneado = true;
     }
+
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerControler>();
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         timerAtaque -= Time.deltaTime;
         if (timerAtaque > 0)
         {
             Perseguir();
-
         }
         else if (timerAtaque < 0)
         {
@@ -38,9 +37,6 @@ public class EnemigoRokuro : MonoBehaviour
             timerAtaque = 15;
             gameObject.SetActive(false);
         }
-
-
-
 
     }
 

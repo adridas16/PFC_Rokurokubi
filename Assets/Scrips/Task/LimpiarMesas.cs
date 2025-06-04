@@ -8,11 +8,6 @@ public class LimpiarMesas : MonoBehaviour
     [SerializeField] SistemaDeMisiones sistemadeMisiones;
     [SerializeField] private int nPapeles=0;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         MisionPapelera();   
@@ -45,7 +40,6 @@ public class LimpiarMesas : MonoBehaviour
     {
         if (nPapeles >= 3)
         {
-            Debug.Log("mesas limpias");
             sistemadeMisiones.MisionLimpiarMesas();
         }
     }

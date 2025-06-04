@@ -7,20 +7,16 @@ public class Ventana : Tarea
 {
     [SerializeField] private Animator anim;
     [SerializeField] private float timer;
-    private int ventanas;
     Camera cam;
-    private float distanciaVentana=2;
     private bool ventanaCerrada = true;
     public bool VentanaCerrada { get => ventanaCerrada; set => ventanaCerrada = value; }
 
     void Start()
     {
-
         timer = Random.Range(0f, 15f);
         cam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Temporizador();
@@ -34,20 +30,13 @@ public class Ventana : Tarea
             if (timer >= 20)
             {
                 anim.SetBool("Abrir", true);
-                Debug.Log("abre");
                 VentanaCerrada = false;
-                
             }
         }
-       
-        
-       
-
     }
 
     public void Cerrar()
     {
         anim.SetBool("Abrir", false);
-
     }
 }

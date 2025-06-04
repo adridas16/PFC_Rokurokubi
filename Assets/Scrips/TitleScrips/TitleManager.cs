@@ -11,10 +11,6 @@ using UnityEngine.Rendering.Universal;
 
 public class TitleManager : MonoBehaviour
 {
-    //unity Tutorials..https://gamedevbeginner.com/
-    //Tutorial Configuracion ..https://www.red-gate.com/simple-talk/development/dotnet-development/how-to-create-a-settings-menu-in-unity/
-    // Start is called before the first frame update
-
 
     [SerializeField] public AudioMixer audioMixer;
     [SerializeField] public TMP_Dropdown resolutionDropdown;
@@ -53,13 +49,7 @@ public class TitleManager : MonoBehaviour
         LoadSetting();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
+ 
 
     public void SetVolume(float volume)
     {
@@ -94,49 +84,11 @@ public class TitleManager : MonoBehaviour
 
     public void SetQuality(int qualityIndex)
     {
-        //if (qualityIndex != 6)
-        //{
+
             qualityDropdown.value = qualityIndex;
             QualitySettings.SetQualityLevel(qualityIndex);
             qualityDropdown.RefreshShownValue();
-        //}
-        //switch (qualityIndex)
-        //{
-        //    case 0: //Calidad Muy bajo
-        //        aaDropdown.value = 0;
-        //        break;
-
-        //    case 1: //Calidad Bajo
-        //        textureDropdown.value = 2;
-        //        aaDropdown.value = 0;
-        //        break;
-
-        //    case 2://Calidad Medio
-        //        textureDropdown.value = 1;
-        //        aaDropdown.value = 0;
-        //        break;
-
-        //    case 3://Calidad Alto
-        //        textureDropdown.value = 0;
-        //        aaDropdown.value = 0;
-        //        break;
-
-        //    case 4://Calidad Alto
-        //        textureDropdown.value = 0;
-        //        aaDropdown.value = 1;
-        //        break;
-
-        //    case 5: //Calidad Muy alto
-        //        textureDropdown.value = 0;
-        //        aaDropdown.value = 2;
-        //        break;
-
-
-
-
-
-        //}
-        //qualityDropdown.value = qualityIndex;
+        
     }
 
 

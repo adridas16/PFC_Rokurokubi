@@ -8,9 +8,7 @@ public class SpotLight : MonoBehaviour
     private Camera cam;
     [SerializeField] private float duration;
     Light luz;
-    private Vector3 velocity;
     private bool apagada=false;
-    // Start is called before the first frame update
     private void Awake()
     {
         luz = GetComponent<Light>();
@@ -21,7 +19,6 @@ public class SpotLight : MonoBehaviour
        
     }
 
-    // Update is called once per frame
     void Update()   
     {
         transform.DORotate(cam.transform.eulerAngles, duration);    
@@ -40,6 +37,8 @@ public class SpotLight : MonoBehaviour
             apagada = false;
 
         }
+    }
+    
         //private IEnumerator RotarAObjetivo()
         //{
 
@@ -55,6 +54,4 @@ public class SpotLight : MonoBehaviour
         //    transform.rotation = rotacionB;
 
         //}
-    }
-    
 }
