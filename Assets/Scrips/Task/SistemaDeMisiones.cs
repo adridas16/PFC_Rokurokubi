@@ -14,9 +14,9 @@ public class SistemaDeMisiones : Tarea
     [SerializeField] private TMP_Text misionVentana;
     [SerializeField] private TMP_Text misionRellenar;
     [SerializeField] private TMP_Text misionPlatos;
-    private bool misionVterminada=false;
-    private bool misionRterminada=false;
-    private bool misionPterminada=false;
+    [SerializeField]private bool misionVterminada=false;
+    [SerializeField] private bool misionRterminada=false;
+    [SerializeField] private bool misionPterminada=false;
     public bool misionLterminada=false;
     public int finalJuego;
     [SerializeField] GameObject llave;
@@ -56,15 +56,12 @@ public class SistemaDeMisiones : Tarea
     }
     private void MisionRellenar()
     {
-        if (misionesCumplidas >= 3)
+        if (misionesCumplidas >= 3 && !misionRterminada)
         {
-            misionRellenar.text = "Objetos Rellenados";
-            if(!misionRterminada)
-            {
                 Terminar();
                 misionRterminada = true;
                 finalJuego++;
-            }
+            
             
         }
     }

@@ -59,24 +59,26 @@ public class ApagarLuces : Tarea
         {
             if (hitinfo.transform.CompareTag("ApagarLuz"))
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                hitinfo.transform.GetComponent<Outline>().enabled = true;
+                if (Input.GetKeyDown(KeyCode.E)&& !misionTerminada)
                 {
-                    hitinfo.transform.GetComponent<Outline>().enabled=true;
+                    
                     
                     luces++;
-                    if (!misionTerminada)
-                    {
-                        Terminar();
-                        misionTerminada = true;
-                        sistemaDeMisiones.finalJuego++;
-                    }
+                   
+                    Terminar();
+                    misionTerminada = true;
+                    sistemaDeMisiones.finalJuego++;
+                    
                     
                 }
+
             }
-            else
+            else if (!hitinfo.transform.CompareTag("ApagarLuz"))
             {
                 hitinfo.transform.GetComponent<Outline>().enabled = false;
             }
+
         }
     }
 }

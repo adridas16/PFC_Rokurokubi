@@ -70,9 +70,6 @@ public class RellenarElementos : MonoBehaviour
             }
         }            
     }
-   private void MisionCumplidaTexto()
-   {
-      
-   }
+
     
 }
