@@ -20,9 +20,10 @@ public class llave : MonoBehaviour
 
                 if (raycastHitOBJ.transform.TryGetComponent(out lave))
                 {
+                    Cursor.lockState = CursorLockMode.None;
                     Time.timeScale = 0;
                     PanelV.SetActive(true);
-                    Cursor.lockState = CursorLockMode.None;
+                    
                 }
             }
         }

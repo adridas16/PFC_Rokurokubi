@@ -52,10 +52,11 @@ public class EnemigoRokuro : MonoBehaviour
         {
             //me paro
             agent.isStopped = true;
+            Cursor.lockState = CursorLockMode.None;
             //activar la animacion de ataque
             EnfocarPlayer();
             PanelM.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+            
         }
         else
         {
