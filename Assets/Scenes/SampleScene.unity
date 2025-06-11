@@ -991,17 +991,17 @@ PrefabInstance:
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14939654
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.527
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.794
+      value: -9.066
       objectReference: {fileID: 0}
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
@@ -1890,9 +1890,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.24300002, y: 0.264, z: 0.36}
+  m_Extents: {x: 0.24300002, y: 0.264, z: 0.254}
   m_MoveThreshold: 0.1
-  m_Carve: 1
+  m_Carve: 0
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.254}
   m_TimeToStationary: 0.5
@@ -2430,7 +2430,7 @@ PrefabInstance:
     - target: {fileID: 4980514479231747881, guid: ab4727f7167f14c38ac75a05b329ae5e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.891
+      value: 2.324
       objectReference: {fileID: 0}
     - target: {fileID: 4980514479231747881, guid: ab4727f7167f14c38ac75a05b329ae5e,
         type: 3}
@@ -3259,7 +3259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  tiempoDeTarea: 25
+  tiempoDeTarea: 20
   enemigoR: {fileID: 4041821970980368920}
 --- !u!4 &275348339
 Transform:
@@ -5654,8 +5654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.3181152, y: 3.36792}
+  m_SizeDelta: {x: 29.4794, y: 29.6745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546226985
 MonoBehaviour:
@@ -7100,6 +7100,7 @@ MonoBehaviour:
   PanelOpciones: {fileID: 671017550}
   PanelMenu: {fileID: 402540938}
   canvasplayer: {fileID: 921439861}
+  botonPlayer: {fileID: 523043056}
 --- !u!224 &659672222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9948,8 +9949,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.3181152, y: 3.36792}
+  m_SizeDelta: {x: 29.48, y: 29.674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &920619617
 PrefabInstance:
@@ -10234,6 +10235,7 @@ MonoBehaviour:
   PanelOpciones: {fileID: 671017550}
   PanelMenu: {fileID: 1215633355}
   canvasplayer: {fileID: 921439861}
+  botonPlayer: {fileID: 523043056}
 --- !u!1001 &922138667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10921,6 +10923,7 @@ MonoBehaviour:
   gravityValue: -9.81
   pause: {fileID: 402540938}
   canvasplayer: {fileID: 921439857}
+  botonPlayer: {fileID: 523043056}
 --- !u!143 &1009423765
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12476,7 +12479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131250200a9b6394395a68fcf3e82629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoExtra: 50
+  tiempoExtra: 10
   spawner: {fileID: 275348338}
 --- !u!1001 &1153050275
 PrefabInstance:
@@ -13344,7 +13347,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.24300002, y: 0.264, z: 0.33}
   m_MoveThreshold: 0.1
-  m_Carve: 1
+  m_Carve: 0
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.254}
   m_TimeToStationary: 0.5
@@ -17743,7 +17746,7 @@ PrefabInstance:
     - target: {fileID: 2629607721103794553, guid: 7fc564af1490143d4888ed00f4ba6a7a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.891
+      value: 2.324
       objectReference: {fileID: 0}
     - target: {fileID: 2629607721103794553, guid: 7fc564af1490143d4888ed00f4ba6a7a,
         type: 3}
@@ -17971,7 +17974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4354949854644242, guid: 49d0fcb68b5aed64aafe256652042e9d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 2.308
       objectReference: {fileID: 0}
     - target: {fileID: 4354949854644242, guid: 49d0fcb68b5aed64aafe256652042e9d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18025,7 +18028,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1383224378593844, guid: 49d0fcb68b5aed64aafe256652042e9d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1734828066}
+      addedObject: {fileID: 1734828070}
   m_SourcePrefab: {fileID: 100100000, guid: 49d0fcb68b5aed64aafe256652042e9d, type: 3}
 --- !u!4 &1734828057 stripped
 Transform:
@@ -18054,7 +18057,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48617595, y: 0.52740425, z: 0.037580106}
   m_Center: {x: 0.00000019073487, y: 0.00000026226044, z: 0.48886976}
---- !u!208 &1734828066
+--- !u!208 &1734828070
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18064,9 +18067,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.24300002, y: 0.264, z: 0.325}
+  m_Extents: {x: 0.24300002, y: 0.264, z: 0.254}
   m_MoveThreshold: 0.1
-  m_Carve: 1
+  m_Carve: 0
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.254}
   m_TimeToStationary: 0.5
@@ -20679,7 +20682,7 @@ PrefabInstance:
     - target: {fileID: 8376920709921561203, guid: ce442c702205447df8a6adc6b158cdb7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.889
+      value: 2.322
       objectReference: {fileID: 0}
     - target: {fileID: 8376920709921561203, guid: ce442c702205447df8a6adc6b158cdb7,
         type: 3}
@@ -22410,7 +22413,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3701043033045149868}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.49
+  m_Radius: 0.1
   m_Speed: 4.1
   m_Acceleration: 8
   avoidancePriority: 50
@@ -22457,10 +22460,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4906044
-  m_Height: 2.7874851
+  m_Radius: 0.41482782
+  m_Height: 2.2625222
   m_Direction: 1
-  m_Center: {x: 0.009395599, y: 0.89374256, z: 0}
+  m_Center: {x: 0, y: 1.156224, z: 0}
 --- !u!95 &4041821970980368922
 Animator:
   serializedVersion: 5
@@ -22745,13 +22748,18 @@ PrefabInstance:
     - target: {fileID: 2517086197242549327, guid: e74ca7b0fde4f1446a602462680b9c37,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6400355210408619559, guid: e74ca7b0fde4f1446a602462680b9c37,
         type: 3}
       propertyPath: sistemadeMisiones
       value: 
       objectReference: {fileID: 1147681008}
+    - target: {fileID: 6542515091116596167, guid: e74ca7b0fde4f1446a602462680b9c37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8211888669568348664, guid: e74ca7b0fde4f1446a602462680b9c37,
         type: 3}
       propertyPath: m_Name
@@ -22770,7 +22778,7 @@ PrefabInstance:
     - target: {fileID: 8844416077583444802, guid: e74ca7b0fde4f1446a602462680b9c37,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.626999
+      value: -4.84
       objectReference: {fileID: 0}
     - target: {fileID: 8844416077583444802, guid: e74ca7b0fde4f1446a602462680b9c37,
         type: 3}
@@ -22857,10 +22865,11 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1155990211}
   - {fileID: 829630682}
+  - {fileID: 921439858}
+  - {fileID: 659672222}
   - {fileID: 1009423763}
   - {fileID: 1420619763}
   - {fileID: 881460045}
-  - {fileID: 921439858}
   - {fileID: 7236622325004921977}
   - {fileID: 1429197475}
   - {fileID: 643989816}
@@ -22868,6 +22877,5 @@ SceneRoots:
   - {fileID: 1147681009}
   - {fileID: 275348339}
   - {fileID: 985337549}
-  - {fileID: 659672222}
   - {fileID: 63019855}
   - {fileID: 6722427715805649129}

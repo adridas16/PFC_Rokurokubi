@@ -21,6 +21,7 @@ public class llave : MonoBehaviour
                 if (raycastHitOBJ.transform.TryGetComponent(out lave))
                 {
                     Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                     Time.timeScale = 0;
                     PanelV.SetActive(true);
                     

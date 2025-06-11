@@ -21,7 +21,6 @@ public class EnemigoRokuro : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerControler>();
-        
     }
 
     void Update()
@@ -50,9 +49,10 @@ public class EnemigoRokuro : MonoBehaviour
         //Si no hay calculos Pendientes para saber donde esta mi objetivo
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            //me paro
-            agent.isStopped = true;
             Cursor.lockState = CursorLockMode.None;
+            //me paro
+            Cursor.visible = true;
+            agent.isStopped = true;
             //activar la animacion de ataque
             EnfocarPlayer();
             PanelM.SetActive(true);

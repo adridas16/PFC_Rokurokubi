@@ -21,6 +21,7 @@ public class PlayerControler : MonoBehaviour
     Vector2 movement;
     [SerializeField] private GameObject pause;
     [SerializeField] private GameObject canvasplayer;
+    [SerializeField] private GameObject botonPlayer;
     private void Start()
     {
         controller =GetComponent<CharacterController>();
@@ -105,6 +106,7 @@ public class PlayerControler : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0;
+            botonPlayer.SetActive(false);
         }
         
     }

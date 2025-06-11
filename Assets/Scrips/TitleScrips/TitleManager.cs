@@ -24,6 +24,7 @@ public class TitleManager : MonoBehaviour
     [SerializeField] GameObject PanelMenu;
     Canvas canvas;
     [SerializeField] private Canvas canvasplayer;
+    [SerializeField] private GameObject botonPlayer;
     private void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -148,6 +149,7 @@ public class TitleManager : MonoBehaviour
     {
         PanelOpciones.SetActive(true);
         PanelMenu.SetActive(false);
+        botonPlayer.SetActive(false);
     }
     
     public void Salir()
@@ -158,6 +160,7 @@ public class TitleManager : MonoBehaviour
     {
         PanelOpciones.SetActive(false);
         PanelMenu.SetActive(true);
+        botonPlayer.SetActive(false);
     }
     public void Menu()
     {
@@ -170,6 +173,7 @@ public class TitleManager : MonoBehaviour
         PanelMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        botonPlayer.SetActive(true);
     }
     
 }
