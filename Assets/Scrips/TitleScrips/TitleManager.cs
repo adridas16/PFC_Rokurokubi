@@ -31,7 +31,7 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
-        //resolutionDropdown.ClearOptions();
+        resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         resolutions = Screen.resolutions;
         int currentResolutionIndex = 0;
@@ -85,9 +85,9 @@ public class TitleManager : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
 
-            qualityDropdown.value = qualityIndex;
-            QualitySettings.SetQualityLevel(qualityIndex);
-            qualityDropdown.RefreshShownValue();
+        qualityDropdown.value = qualityIndex;
+        QualitySettings.SetQualityLevel(qualityIndex);
+        qualityDropdown.RefreshShownValue();
         
     }
 
